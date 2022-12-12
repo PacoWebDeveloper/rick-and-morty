@@ -25,7 +25,6 @@
     padding: 6px;
     font-size: 20px;
     outline: none;
-    background-color: var(--second-color);
     color: var(--font-color);
     border: none;
     border-radius: 5px 0 0 5px;
@@ -100,14 +99,17 @@ button[type="submit"] > span {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     gap: 1rem;
     color: var(--font-color);
+    width: 100%;
 }
 .resident-card {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
     background-color: var(--second-color);
+    width: 300px;
 }
 .res-status {
     position: relative;
@@ -143,4 +145,32 @@ button[type="submit"] > span {
 .res-data > p {
     margin-top: 1rem;
     font-weight: bold;
+}
+@media (min-width: 800px) {
+    .header {
+        height: 300px;
+    }
+    .location-containter {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+    .location-data {
+        max-width: 620px;
+    }
+    .residents {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+}
+@media (min-width: 1297px) {
+    .header {
+        height: 400px;
+    }
+    .location-containter {
+        max-width: 1297px;
+        margin: 0 auto;
+    }
+    .residents {
+        justify-content: flex-start;
+    }
 }
