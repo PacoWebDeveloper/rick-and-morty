@@ -15,7 +15,6 @@ const ResidentCard = ({residentUrl}) => {
 
   return (
     <div className='resident-card'>
-      {console.log(resident)}
       <img src={resident?.image} alt={resident?.name} />
       <div className="res-data">
         <span className="res-status">{resident?.status}</span>

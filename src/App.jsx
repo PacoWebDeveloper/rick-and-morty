@@ -5,44 +5,40 @@ import LocationFilter from './components/LocationFilter'
 import ResidentCard from './components/ResidentCard'
 
 function App() {
-  const [text, setText] = useState()
   const [location, setLocation] = useState()
 
   useEffect(() => { 
-    const number = randomNumber();
-    const URLforRandom = `https://rickandmortyapi.com/api/location/${number}`
-    axios.get(URLforRandom)
-    .then(res => setLocation(res.data))
-    .catch(err => console.log(err))
+    const dimensionNumber = randomNumber();
+    getDataDimension(dimensionNumber)
   }, [])
-  
-  useEffect(() => {
-    if (text) {
-      const URL = `https://rickandmortyapi.com/api/location?name=${text}`
-      axios.get(URL)
-        .then(res => setLocation(res.data))
-        .catch(err => console.error(err))
-    }
-  }, [text])  
   
   const randomNumber = () => {
     return Math.floor(Math.random() * 100)
   }
 
-  const getText = (e) => {
+  const getDataDimension = (dimensionNumber) => {
+    const URL = `https://rickandmortyapi.com/api/location/${dimensionNumber}`
+    axios.get(URL)
+    .then(res => setLocation(res.data))
+    .catch(err => {
+      console.log(err)
+      alert('Dimension not found')
+    })
+  }
+
+  const submit = (e) => {
     e.preventDefault()
-    setText(e.target.userEnter.value)    
+    const dimensionNumber = e.target.userEnter.value
+    getDataDimension(dimensionNumber)
   }
 
   return (
     <div className="App">
       <h1>Rick and Morty</h1>
-      {
-        <form onSubmit={getText}>
-          <input type="text" id="userEnter" />
-          <button type="submit">Search</button>
-        </form>
-      }
+      <form onSubmit={submit}>
+        <input type="text" placeholder='Enter a dimension number' id="userEnter"/>
+        <button type="submit">Search</button>
+      </form>
       {
         location ? <LocationFilter location={location}/> : <p>No data...</p> 
       }
