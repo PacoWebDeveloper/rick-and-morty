@@ -29,27 +29,35 @@ function App() {
   const submit = (e) => {
     e.preventDefault()
     const dimensionNumber = e.target.userEnter.value
+    e.target.userEnter.value = ''
     getDataDimension(dimensionNumber)
   }
 
   return (
     <div className="App">
-      <h1>Rick and Morty</h1>
-      <form onSubmit={submit}>
-        <input type="text" placeholder='Enter a dimension number' id="userEnter"/>
-        <button type="submit">Search</button>
-      </form>
-      {
-        location ? <LocationFilter location={location}/> : <p>No data...</p> 
-      }
-      <div className="residents">
-        <h2>Residents</h2>
-        { 
-          location?.residents.map(residentUrl => 
-            <ResidentCard key={residentUrl} residentUrl={residentUrl}/>
-          )
-        }
+      <div className="header">
+        <form onSubmit={submit}>
+          <input type="text" placeholder='Enter a dimension number' className='inputText' id="userEnter"/>
+          <button type="submit">
+          <span className="material-symbols-outlined">
+            search
+          </span>
+          </button>
+        </form>
       </div>
+      <section className='location-containter'>
+        {
+          location ? <LocationFilter location={location}/> : <p>No data...</p> 
+        }
+        <div className="residents">
+          <h2>Residents</h2>
+          { 
+            location?.residents.map(residentUrl => 
+              <ResidentCard key={residentUrl} residentUrl={residentUrl}/>
+            )
+          }
+        </div>
+      </section>
     </div>
   )
 }
