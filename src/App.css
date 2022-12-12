@@ -9,7 +9,7 @@
     width: 100%;
 }
 .header {
-    background-image: url('./img/rickandmorty.jpg');
+    background-image: url('./assets/rickandmorty.jpg');
     background-size: cover;
     height: 200px;
     display: flex;
