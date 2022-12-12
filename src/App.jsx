@@ -50,7 +50,6 @@ function App() {
           location ? <LocationFilter location={location}/> : <p>No data...</p> 
         }
         <div className="residents">
-          <h2>Residents</h2>
           { 
             location?.residents.map(residentUrl => 
               <ResidentCard key={residentUrl} residentUrl={residentUrl}/>

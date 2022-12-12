@@ -17,14 +17,22 @@ const ResidentCard = ({residentUrl}) => {
     <div className='resident-card'>
       <img src={resident?.image} alt={resident?.name} />
       <div className="res-data">
-        <span className="res-status">{resident?.status}</span>
-        <h2 className='res-name'>{resident?.name}</h2>
+        <span className="res-status">
+          <span className={
+            `circle ${
+              resident?.status == 'Dead' ? 'red' : 
+              resident?.status != 'Alive' ? 'gray' : ''
+            }`}>
+          </span>
+          {resident?.status}
+        </span>
+        <h2 className='res-name bold'>{resident?.name}</h2>
         <p>Specie</p>
-        <span>{resident?.species}</span>
+        <span className='bold'>{resident?.species}</span>
         <p>Origin</p>
-        <span className='res-origin'>{resident?.origin.name}</span>
+        <span className='res-origin bold'>{resident?.origin.name}</span>
         <p>Episodes where appear</p>
-        <span className="res-episodes">{resident?.episode.length}</span>
+        <span className="res-episodes bold">{resident?.episode.length}</span>
       </div>
     </div>
   )

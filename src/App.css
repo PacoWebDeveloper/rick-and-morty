@@ -1,7 +1,8 @@
 :root {
     --main-color: #033838;
     --second-color: #022525;
-    --font-color: #ccc;
+    --bold-color: #fff;
+    --font-color: #aaa;
     --shadow: #87e63e;
 }
 .App {
@@ -77,4 +78,69 @@ button[type="submit"] > span {
     display: flex;
     justify-content: space-between;
     gap: 1rem;
+}
+.locSection {
+    display: flex;
+    flex-direction: column;
+}
+.locType {
+    font-weight: bold;
+}
+.locDimension {
+    font-weight: bold;
+}
+.locPopulation {
+    font-weight: bold;
+}
+.bold {
+    color: var(--bold-color);
+}
+/*============= RESIDENTS =============*/
+.residents {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+    color: var(--font-color);
+}
+.resident-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    background-color: var(--second-color);
+}
+.res-status {
+    position: relative;
+    top: -270px;
+    left: -16px;
+    background-color: var(--second-color);
+    display: flex;
+    width: 130px;
+    padding: 5px 8px;
+    border:  none;
+    border-radius: 0 5px 5px 0;
+}
+.circle {
+    display: block;
+    border-radius: 50%;
+    background-color: #87e63e;
+    width: 10px;
+    height: 10px;
+    margin-right: 5px;
+    position: relative;
+    top: 4px;
+}
+.red {
+    background-color: #ee2c2c;
+}
+.gray {
+    background-color: #aaa;
+}
+.res-data {
+    padding-left: 1rem;
+    padding-bottom: 1rem;
+}
+.res-data > p {
+    margin-top: 1rem;
+    font-weight: bold;
 }
